@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Expense Tracker Pro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- PROFILE SELECTOR -->
+  <section id="profileSection" class="section active">
+    <h1 class="app-title">Expense Tracker Pro</h1>
+    <div id="profileList" class="profile-list"></div>
+    <button id="profileFab" class="fab">＋</button>
+  </section>
+
+  <!-- TRACKER -->
+  <section id="trackerSection" class="section">
+    <header class="tracker-header">
+      <button id="backButton" class="icon-btn">←</button>
+      <h2 id="profileName"></h2>
+    </header>
+
+    <div class="card balance-card">
+      <div id="balance" class="balance positive">₹0.00</div>
+    </div>
+
+    <div class="card input-card">
+      <input type="number" id="amount" placeholder="Amount" step="0.01" class="input"/>
+      <select id="type" class="input">
+        <option value="credit">Credit (+)</option>
+        <option value="debit">Debit (−)</option>
+      </select>
+      <select id="descriptionSelect" class="input">
+        <option value="">Select Description</option>
+        <option value="Food">Food</option>
+        <option value="Clothing">Clothing</option>
+        <option value="Shopping">Shopping</option>
+        <option value="Grocery">Grocery</option>
+        <option value="Entertainment">Entertainment</option>
+        <option value="Other">Other</option>
+      </select>
+      <input type="text" id="descriptionCustom" placeholder="Custom Description" class="input hidden"/>
+      <input type="file" id="billAttachment" class="input" accept="image/*"/>
+      <img id="attachmentPreview" class="attachment-preview hidden" alt="Attachment Preview"/>
+
+      <button id="addButton" class="btn primary-btn">Add Transaction</button>
+      <button id="toggleHistoryBtn" class="btn secondary-btn">Show History</button>
+    </div>
+
+    <div id="history" class="history">
+      <div class="filters">
+        <button id="filterAllBtn" class="filter-btn active">All</button>
+        <button id="filterCreditBtn" class="filter-btn">Credit</button>
+        <button id="filterDebitBtn" class="filter-btn">Debit</button>
+        <button id="sortBtn" class="sort-btn">↓</button>
+      </div>
+      <div id="historyContent" class="history-list"></div>
+    </div>
+  </section>
+
+  <!-- PROFILE MANAGER MODAL -->
+  <div id="profileModal" class="modal-overlay">
+    <div class="modal-content modal-profile-edit">
+      <h3>Manage Profiles</h3>
+      <button id="addProfileModalBtn" class="modal-btn">Add Profile</button>
+      <button id="editProfileModalBtn" class="modal-btn">Edit Profile</button>
+      <button id="deleteProfileModalBtn" class="modal-btn">Delete Profile</button>
+      <button id="recycleBinBtn" class="modal-btn">Recycle Bin</button>
+      <button id="closeProfileModalBtn" class="modal-btn cancel">Close</button>
+    </div>
+  </div>
+
+  <!-- CUSTOM INPUT MODAL -->
+  <div id="customModal" class="modal-overlay">
+    <div class="modal-content">
+      <h3 id="customModalTitle"></h3>
+      <input type="text" id="customModalInput" class="input" placeholder="Enter name"/>
+      <div class="modal-buttons">
+        <button id="customModalConfirmBtn" class="modal-btn">Confirm</button>
+        <button id="customModalCancelBtn" class="modal-btn cancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECYCLE BIN MODAL -->
+  <div id="recycleBinModal" class="modal-overlay">
+    <div class="modal-content">
+      <h3>Recycle Bin</h3>
+      <div id="recycleList" class="profile-list"></div>
+      <button id="closeRecycleModalBtn" class="modal-btn cancel">Close</button>
+    </div>
+  </div>
+
+  <!-- PROOF VIEWER MODAL -->
+  <div id="proofModal" class="modal-overlay">
+    <div class="modal-content">
+      <img id="proofImage" class="proof-image" alt="Proof"/>
+      <button id="saveProofBtn" class="modal-btn">Save Proof</button>
+      <button id="editProofBtn" class="modal-btn">Change Proof</button>
+      <button id="closeProofModalBtn" class="modal-btn cancel">Close</button>
+    </div>
+  </div>
+
+  <!-- CONFIRMATION MODAL -->
+  <div id="confirmModal" class="modal-overlay">
+    <div class="modal-content">
+      <h3 id="confirmModalTitle"></h3>
+      <div class="modal-buttons">
+        <button id="confirmYesBtn" class="modal-btn">Yes</button>
+        <button id="confirmNoBtn" class="modal-btn cancel">No</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
