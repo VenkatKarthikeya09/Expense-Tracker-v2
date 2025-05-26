@@ -221,21 +221,29 @@ body {
 }
 
 /* History */
+/* History */
 .history {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease, opacity 0.4s ease;
   opacity: 0;
 }
+
 .history.open {
-  max-height: 1000px;
+  max-height: 600px;       /* Enough height to scroll if many items */
+  overflow-y: auto;         /* Enables scroll when needed */
   opacity: 1;
+  padding-right: 6px;       /* Prevent scrollbar overlap */
+  scroll-behavior: smooth;
 }
+
 .history-list {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  padding-right: 6px; /* align with scroll padding */
 }
+
 .history-item {
   background: var(--card-bg);
   border-radius: var(--border-radius);
